@@ -19,6 +19,26 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         initComponents();
     }
 
+    private float ans;
+
+    public float getAns() {
+        return ans;
+    }
+
+    public void setAns(float ans) {
+        this.ans = ans;
+    }
+    
+    private int operacion;
+
+    public int getOperacion() {
+        return operacion;
+    }
+
+    public void setOperacion(int operacion) {
+        this.operacion = operacion;
+    }
+    
     private int jTextFieldSelection;
     
     public void setTextFieldSelected(int value){
@@ -32,7 +52,7 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
     {
         try
         {
-          Integer.parseInt( input );
+          Float.parseFloat(input);
           return true;
         }
         catch( Exception e )
@@ -59,7 +79,7 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButtonChange = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jTextField4 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
@@ -69,20 +89,22 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         jButtonn8 = new javax.swing.JButton();
         jButtonn9 = new javax.swing.JButton();
         jButtonAdd = new javax.swing.JButton();
-        jButtonMultiply = new javax.swing.JButton();
-        jButtonRoot = new javax.swing.JButton();
+        jButtonClear = new javax.swing.JButton();
         jButtonn4 = new javax.swing.JButton();
         jButtonn5 = new javax.swing.JButton();
         jButtonn6 = new javax.swing.JButton();
         jButtonSubstraction = new javax.swing.JButton();
-        jButtonDivide = new javax.swing.JButton();
-        jButtonPow = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
         jButtonn1 = new javax.swing.JButton();
         jButtonn2 = new javax.swing.JButton();
         jButtonn3 = new javax.swing.JButton();
+        jButtonMultiply = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jButtonAns = new javax.swing.JButton();
         jButtonn0 = new javax.swing.JButton();
-        jButtonClear = new javax.swing.JButton();
-        jButtonExit = new javax.swing.JButton();
+        jButtonPeriod = new javax.swing.JButton();
+        jButtonDivide = new javax.swing.JButton();
+        jButtonSolve = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridLayout(2, 0));
@@ -152,16 +174,16 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
         jPanel3.add(jTextField3, gridBagConstraints);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1488384724_arrowupdown.png"))); // NOI18N
-        jButton1.setToolTipText("");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setFocusable(false);
-        jButton1.setMaximumSize(new java.awt.Dimension(55, 43));
-        jButton1.setMinimumSize(new java.awt.Dimension(0, 0));
-        jButton1.setPreferredSize(new java.awt.Dimension(16, 16));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonChange.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1488384724_arrowupdown.png"))); // NOI18N
+        jButtonChange.setToolTipText("");
+        jButtonChange.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonChange.setFocusable(false);
+        jButtonChange.setMaximumSize(new java.awt.Dimension(55, 43));
+        jButtonChange.setMinimumSize(new java.awt.Dimension(0, 0));
+        jButtonChange.setPreferredSize(new java.awt.Dimension(16, 16));
+        jButtonChange.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonChangeActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -170,7 +192,7 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         gridBagConstraints.ipadx = 9;
         gridBagConstraints.ipady = 7;
         gridBagConstraints.weightx = 0.7;
-        jPanel3.add(jButton1, gridBagConstraints);
+        jPanel3.add(jButtonChange, gridBagConstraints);
 
         jPanel5.setMinimumSize(new java.awt.Dimension(16, 16));
         jPanel5.setPreferredSize(new java.awt.Dimension(16, 16));
@@ -249,7 +271,7 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1);
 
-        jPanel2.setLayout(new java.awt.GridLayout(3, 6));
+        jPanel2.setLayout(new java.awt.GridLayout(4, 6));
 
         jButtonn7.setBackground(new java.awt.Color(0, 0, 0));
         jButtonn7.setForeground(new java.awt.Color(255, 255, 255));
@@ -307,27 +329,14 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonAdd);
 
-        jButtonMultiply.setBackground(new java.awt.Color(255, 102, 0));
-        jButtonMultiply.setText("X");
-        jButtonMultiply.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonMultiply.setFocusable(false);
-        jButtonMultiply.addActionListener(new java.awt.event.ActionListener() {
+        jButtonClear.setText("AC");
+        jButtonClear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonMultiplyActionPerformed(evt);
+                jButtonClearActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonMultiply);
-
-        jButtonRoot.setBackground(new java.awt.Color(255, 102, 0));
-        jButtonRoot.setText("√");
-        jButtonRoot.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonRoot.setFocusable(false);
-        jButtonRoot.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRootActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButtonRoot);
+        jPanel2.add(jButtonClear);
 
         jButtonn4.setBackground(new java.awt.Color(0, 0, 0));
         jButtonn4.setForeground(new java.awt.Color(255, 255, 255));
@@ -379,27 +388,18 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonSubstraction);
 
-        jButtonDivide.setBackground(new java.awt.Color(255, 102, 0));
-        jButtonDivide.setText("/");
-        jButtonDivide.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonDivide.setFocusable(false);
-        jButtonDivide.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDivideActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButtonDivide);
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 86, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 52, Short.MAX_VALUE)
+        );
 
-        jButtonPow.setBackground(new java.awt.Color(255, 102, 0));
-        jButtonPow.setText("^");
-        jButtonPow.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonPow.setFocusable(false);
-        jButtonPow.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPowActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButtonPow);
+        jPanel2.add(jPanel6);
 
         jButtonn1.setBackground(new java.awt.Color(0, 0, 0));
         jButtonn1.setForeground(new java.awt.Color(255, 255, 255));
@@ -440,6 +440,41 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonn3);
 
+        jButtonMultiply.setBackground(new java.awt.Color(255, 102, 0));
+        jButtonMultiply.setText("X");
+        jButtonMultiply.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonMultiply.setFocusable(false);
+        jButtonMultiply.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMultiplyActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonMultiply);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 86, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 52, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel7);
+
+        jButtonAns.setBackground(new java.awt.Color(153, 153, 153));
+        jButtonAns.setText("Ans");
+        jButtonAns.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonAns.setFocusable(false);
+        jButtonAns.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAnsActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonAns);
+
         jButtonn0.setBackground(new java.awt.Color(0, 0, 0));
         jButtonn0.setForeground(new java.awt.Color(255, 255, 255));
         jButtonn0.setText("0");
@@ -453,23 +488,39 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonn0);
 
-        jButtonClear.setText("AC");
-        jButtonClear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonClear.addActionListener(new java.awt.event.ActionListener() {
+        jButtonPeriod.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonPeriod.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonPeriod.setText(".");
+        jButtonPeriod.setBorderPainted(false);
+        jButtonPeriod.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonPeriod.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonClearActionPerformed(evt);
+                jButtonPeriodActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonClear);
+        jPanel2.add(jButtonPeriod);
 
-        jButtonExit.setText("Exit");
-        jButtonExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonExit.addActionListener(new java.awt.event.ActionListener() {
+        jButtonDivide.setBackground(new java.awt.Color(255, 102, 0));
+        jButtonDivide.setText("/");
+        jButtonDivide.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonDivide.setFocusable(false);
+        jButtonDivide.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonExitActionPerformed(evt);
+                jButtonDivideActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonExit);
+        jPanel2.add(jButtonDivide);
+
+        jButtonSolve.setBackground(new java.awt.Color(153, 153, 153));
+        jButtonSolve.setText("=");
+        jButtonSolve.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonSolve.setFocusable(false);
+        jButtonSolve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSolveActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonSolve);
 
         getContentPane().add(jPanel2);
 
@@ -480,27 +531,23 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         appendText(7);
     }//GEN-LAST:event_jButtonn7ActionPerformed
 
-    private void jButtonExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExitActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jButtonExitActionPerformed
+    private void jButtonPeriodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPeriodActionPerformed
+        switch(getTextFieldSelected()){
+            case 1:
+                jTextField1.setText(jTextField1.getText().substring(0, jTextField1.getSelectionStart())+"."+jTextField1.getText().substring(jTextField1.getSelectionStart()));
+                break;
+            case 2:
+                jTextField2.setText(jTextField2.getText().substring(0, jTextField2.getSelectionStart())+"."+jTextField2.getText().substring(jTextField2.getSelectionStart()));
+                break;
+            default:
+                break;
+        }
+    }//GEN-LAST:event_jButtonPeriodActionPerformed
 
     private void jButtonMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMultiplyActionPerformed
-        float num1, num2, result;
         jTextField4.setText("x");
-        if (!isInteger(jTextField1.getText())){
-            jLabelError.setText("El primer numero no es una cifra");
-        }
-        else if(!isInteger(jTextField2.getText())){
-            jLabelError.setText("El segundo numero no es una cifra");
-        }
-        else{
-            num1 = Float.parseFloat(jTextField1.getText());
-            num2 = Float.parseFloat(jTextField2.getText());
 
-            result = num1*num2;
-
-            jTextField3.setText(String.valueOf(result));
-        }
+        setOperacion(4);
     }//GEN-LAST:event_jButtonMultiplyActionPerformed
 
     private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
@@ -508,86 +555,39 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         jTextField2.setText("");
         jTextField3.setText("");
         jLabelError.setText("");
+        jTextField4.setText("");
     }//GEN-LAST:event_jButtonClearActionPerformed
 
-    private void jButtonPowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPowActionPerformed
-        float num1, num2, result;
-        jTextField4.setText("^");
-        if (!isInteger(jTextField1.getText())){
-            jLabelError.setText("El primer numero no es una cifra");
+    private void jButtonAnsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnsActionPerformed
+       switch(getTextFieldSelected()){
+            case 1:
+                jTextField1.setText(String.valueOf(getAns()));
+                break;
+            case 2:
+                jTextField2.setText(String.valueOf(getAns()));
+                break;
+            default:
+                break;
         }
-        else if(!isInteger(jTextField2.getText())){
-            jLabelError.setText("El segundo numero no es una cifra");
-        }
-        else{
-            num1 = Float.parseFloat(jTextField1.getText());
-            num2 = Float.parseFloat(jTextField2.getText());
-
-            result = (float) Math.pow(num1,num2);
-
-            jTextField3.setText(String.valueOf(result));
-        }
-    }//GEN-LAST:event_jButtonPowActionPerformed
+    }//GEN-LAST:event_jButtonAnsActionPerformed
 
     private void jButtonDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDivideActionPerformed
-        float num1, num2, result;
         jTextField4.setText("/");
 
-        if (!isInteger(jTextField1.getText())){
-            jLabelError.setText("El primer numero no es una cifra");
-        }
-        else if(!isInteger(jTextField2.getText())){
-            jLabelError.setText("El segundo numero no es una cifra");
-        }
-        else if(Float.parseFloat(jTextField1.getText())==0){
-            jLabelError.setText("No se puede dividir por 0.");
-        }
-        else{
-            num1 = Float.parseFloat(jTextField1.getText());
-            num2 = Float.parseFloat(jTextField2.getText());
-
-            result = num1/num2;
-
-            jTextField3.setText(String.valueOf(result));
-        }
+        setOperacion(3);
     }//GEN-LAST:event_jButtonDivideActionPerformed
 
     private void jButtonSubstractionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubstractionActionPerformed
-        float num1, num2, result;
-    jTextField4.setText("-");
-        if (!isInteger(jTextField1.getText())){
-            jLabelError.setText("El primer numero no es una cifra");
-        }
-        else if(!isInteger(jTextField2.getText())){
-            jLabelError.setText("El segundo numero no es una cifra");
-        }
-        else{
-            num1 = Float.parseFloat(jTextField1.getText());
-            num2 = Float.parseFloat(jTextField2.getText());
-            result = num1-num2;
-
-            jTextField3.setText(String.valueOf(result));
-        }
+        jTextField4.setText("-");
+        
+        setOperacion(2);
     }//GEN-LAST:event_jButtonSubstractionActionPerformed
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
-        float num1, num2, result;
+        
         jTextField4.setText("+");
-
-        if (!isInteger(jTextField1.getText())){
-            jLabelError.setText("El primer numero no es una cifra");
-        }
-        else if(!isInteger(jTextField2.getText())){
-            jLabelError.setText("El segundo numero no es una cifra");
-        }
-        else{
-            num1 = Float.parseFloat(jTextField1.getText());
-            num2 = Float.parseFloat(jTextField2.getText());
-
-            result = num1+num2;
-
-            jTextField3.setText(String.valueOf(result));
-        }
+        
+        setOperacion(1);
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jButtonn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonn3ActionPerformed
@@ -634,9 +634,9 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         setTextFieldSelected(2);
     }//GEN-LAST:event_jTextField2FocusGained
 
-    private void jButtonRootActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRootActionPerformed
+    private void jButtonSolveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSolveActionPerformed
+        int ope = getOperacion();
         float num1, num2, result;
-        jTextField4.setText("√");
         if (!isInteger(jTextField1.getText())){
             jLabelError.setText("El primer numero no es una cifra");
         }
@@ -646,23 +646,33 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         else{
             num1 = Float.parseFloat(jTextField1.getText());
             num2 = Float.parseFloat(jTextField2.getText());
-            
-            if (num1<0 && (num2%2)==0){
-                jLabelError.setText("No se pueden hacer raices pares de numeros negativos.");
+            switch(ope){
+                case 1:
+                    result = num1+num2;
+                    break;
+                case 2:
+                    result = num1-num2;
+                    break;
+                case 3:
+                    result = num1/num2;
+                    break;
+                case 4:
+                    result = num1*num2;
+                    break;
+                default:
+                    result = 0;
             }
-            else{
-                result = (float) Math.pow(num1, 1/num2);
-            
-                jTextField3.setText(String.valueOf(result));
-            }
+            System.out.println(result);
+            jTextField3.setText(String.valueOf(result));
+            setAns(result);
         }
-    }//GEN-LAST:event_jButtonRootActionPerformed
+    }//GEN-LAST:event_jButtonSolveActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonChangeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeActionPerformed
 
-        /*String temp = jTextField1.getText();
+        String temp = jTextField1.getText();
         jTextField1.setText(jTextField2.getText());
-        jTextField2.setText(temp);*/
+        jTextField2.setText(temp);
         if(getTextFieldSelected()==1){
             jTextField2.requestFocus();
             setTextFieldSelected(2);
@@ -671,7 +681,7 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
             jTextField1.requestFocus();
             setTextFieldSelected(1);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonChangeActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         
@@ -727,14 +737,14 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAdd;
+    private javax.swing.JButton jButtonAns;
+    private javax.swing.JButton jButtonChange;
     private javax.swing.JButton jButtonClear;
     private javax.swing.JButton jButtonDivide;
-    private javax.swing.JButton jButtonExit;
     private javax.swing.JButton jButtonMultiply;
-    private javax.swing.JButton jButtonPow;
-    private javax.swing.JButton jButtonRoot;
+    private javax.swing.JButton jButtonPeriod;
+    private javax.swing.JButton jButtonSolve;
     private javax.swing.JButton jButtonSubstraction;
     private javax.swing.JButton jButtonn0;
     private javax.swing.JButton jButtonn1;
@@ -755,6 +765,8 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
