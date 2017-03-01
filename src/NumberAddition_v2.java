@@ -8,7 +8,7 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author alvareo
+ * @author Luis Miguel Calvo Magaz, Alvaro Gonzalez Iglesias.
  */
 public class NumberAddition_v2 extends javax.swing.JFrame {
 
@@ -35,7 +35,7 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
           Integer.parseInt( input );
           return true;
         }
-        catch( Exception )
+        catch( Exception e )
         {
             return false;
         }
@@ -59,6 +59,9 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jTextField4 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabelError = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -84,36 +87,127 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridLayout(2, 0));
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 2, true), "Number Addition"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 2, true), "Number Addition v2"));
         jPanel1.setLayout(new java.awt.GridBagLayout());
 
-        jPanel3.setLayout(new java.awt.GridLayout(3, 2));
+        jPanel3.setLayout(new java.awt.GridBagLayout());
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel1.setText("First Number:");
-        jPanel3.add(jLabel1);
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        jPanel3.add(jLabel1, gridBagConstraints);
 
+        jTextField1.setFocusCycleRoot(true);
+        jTextField1.setFocusTraversalPolicyProvider(true);
+        jTextField1.setNextFocusableComponent(jTextField2);
         jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTextField1FocusGained(evt);
             }
         });
-        jPanel3.add(jTextField1);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.weightx = 8.0;
+        jPanel3.add(jTextField1, gridBagConstraints);
 
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("Second Number:");
-        jPanel3.add(jLabel2);
+        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        jPanel3.add(jLabel2, gridBagConstraints);
 
+        jTextField2.setFocusCycleRoot(true);
+        jTextField2.setFocusTraversalPolicyProvider(true);
+        jTextField2.setNextFocusableComponent(jTextField1);
         jTextField2.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTextField2FocusGained(evt);
             }
         });
-        jPanel3.add(jTextField2);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel3.add(jTextField2, gridBagConstraints);
 
         jLabel3.setText("Result:");
-        jPanel3.add(jLabel3);
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+        jPanel3.add(jLabel3, gridBagConstraints);
 
         jTextField3.setFocusable(false);
-        jPanel3.add(jTextField3);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 4;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        jPanel3.add(jTextField3, gridBagConstraints);
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/1488384724_arrowupdown.png"))); // NOI18N
+        jButton1.setToolTipText("");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setFocusable(false);
+        jButton1.setMaximumSize(new java.awt.Dimension(55, 43));
+        jButton1.setMinimumSize(new java.awt.Dimension(0, 0));
+        jButton1.setPreferredSize(new java.awt.Dimension(16, 16));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 9;
+        gridBagConstraints.ipady = 7;
+        gridBagConstraints.weightx = 0.7;
+        jPanel3.add(jButton1, gridBagConstraints);
+
+        jPanel5.setMinimumSize(new java.awt.Dimension(16, 16));
+        jPanel5.setPreferredSize(new java.awt.Dimension(16, 16));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 16, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 16, Short.MAX_VALUE)
+        );
+
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 3;
+        gridBagConstraints.insets = new java.awt.Insets(3, 3, 3, 3);
+        jPanel3.add(jPanel5, gridBagConstraints);
+
+        jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextField4.setBorder(null);
+        jTextField4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jTextField4.setFocusable(false);
+        jTextField4.setMinimumSize(new java.awt.Dimension(20, 20));
+        jTextField4.setPreferredSize(new java.awt.Dimension(20, 20));
+        jTextField4.setRequestFocusEnabled(false);
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 1;
+        jPanel3.add(jTextField4, gridBagConstraints);
 
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
@@ -127,7 +221,6 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         gridBagConstraints.insets = new java.awt.Insets(2, 3, 1, 3);
         jPanel1.add(jPanel3, gridBagConstraints);
 
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(new javax.swing.border.MatteBorder(null), "Aviso:"));
         jPanel4.setAutoscrolls(true);
         jPanel4.setPreferredSize(new java.awt.Dimension(434, 31));
 
@@ -158,7 +251,14 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
 
         jPanel2.setLayout(new java.awt.GridLayout(3, 6));
 
+        jButtonn7.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonn7.setForeground(new java.awt.Color(255, 255, 255));
         jButtonn7.setText("7");
+        jButtonn7.setToolTipText("");
+        jButtonn7.setAlignmentY(0.0F);
+        jButtonn7.setBorder(null);
+        jButtonn7.setBorderPainted(false);
+        jButtonn7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonn7.setFocusable(false);
         jButtonn7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -167,7 +267,12 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonn7);
 
+        jButtonn8.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonn8.setForeground(new java.awt.Color(255, 255, 255));
         jButtonn8.setText("8");
+        jButtonn8.setBorder(null);
+        jButtonn8.setBorderPainted(false);
+        jButtonn8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonn8.setFocusable(false);
         jButtonn8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -176,7 +281,12 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonn8);
 
+        jButtonn9.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonn9.setForeground(new java.awt.Color(255, 255, 255));
         jButtonn9.setText("9");
+        jButtonn9.setBorder(null);
+        jButtonn9.setBorderPainted(false);
+        jButtonn9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonn9.setFocusable(false);
         jButtonn9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,7 +295,10 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonn9);
 
+        jButtonAdd.setBackground(new java.awt.Color(255, 102, 0));
         jButtonAdd.setText("+");
+        jButtonAdd.setBorderPainted(false);
+        jButtonAdd.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonAdd.setFocusable(false);
         jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,7 +307,9 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonAdd);
 
+        jButtonMultiply.setBackground(new java.awt.Color(255, 102, 0));
         jButtonMultiply.setText("X");
+        jButtonMultiply.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonMultiply.setFocusable(false);
         jButtonMultiply.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,7 +318,9 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonMultiply);
 
+        jButtonRoot.setBackground(new java.awt.Color(255, 102, 0));
         jButtonRoot.setText("√");
+        jButtonRoot.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonRoot.setFocusable(false);
         jButtonRoot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,7 +329,11 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonRoot);
 
+        jButtonn4.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonn4.setForeground(new java.awt.Color(255, 255, 255));
         jButtonn4.setText("4");
+        jButtonn4.setBorderPainted(false);
+        jButtonn4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonn4.setFocusable(false);
         jButtonn4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,7 +342,11 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonn4);
 
+        jButtonn5.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonn5.setForeground(new java.awt.Color(255, 255, 255));
         jButtonn5.setText("5");
+        jButtonn5.setBorderPainted(false);
+        jButtonn5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonn5.setFocusable(false);
         jButtonn5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,7 +355,11 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonn5);
 
+        jButtonn6.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonn6.setForeground(new java.awt.Color(255, 255, 255));
         jButtonn6.setText("6");
+        jButtonn6.setBorderPainted(false);
+        jButtonn6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonn6.setFocusable(false);
         jButtonn6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,7 +368,9 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonn6);
 
+        jButtonSubstraction.setBackground(new java.awt.Color(255, 102, 0));
         jButtonSubstraction.setText("-");
+        jButtonSubstraction.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonSubstraction.setFocusable(false);
         jButtonSubstraction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,7 +379,9 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonSubstraction);
 
+        jButtonDivide.setBackground(new java.awt.Color(255, 102, 0));
         jButtonDivide.setText("/");
+        jButtonDivide.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonDivide.setFocusable(false);
         jButtonDivide.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -257,7 +390,9 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonDivide);
 
+        jButtonPow.setBackground(new java.awt.Color(255, 102, 0));
         jButtonPow.setText("^");
+        jButtonPow.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonPow.setFocusable(false);
         jButtonPow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -266,7 +401,11 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonPow);
 
+        jButtonn1.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonn1.setForeground(new java.awt.Color(255, 255, 255));
         jButtonn1.setText("1");
+        jButtonn1.setBorderPainted(false);
+        jButtonn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonn1.setFocusable(false);
         jButtonn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -275,7 +414,11 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonn1);
 
+        jButtonn2.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonn2.setForeground(new java.awt.Color(255, 255, 255));
         jButtonn2.setText("2");
+        jButtonn2.setBorderPainted(false);
+        jButtonn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonn2.setFocusable(false);
         jButtonn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -284,7 +427,11 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonn2);
 
+        jButtonn3.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonn3.setForeground(new java.awt.Color(255, 255, 255));
         jButtonn3.setText("3");
+        jButtonn3.setBorderPainted(false);
+        jButtonn3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonn3.setFocusable(false);
         jButtonn3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -293,7 +440,11 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonn3);
 
+        jButtonn0.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonn0.setForeground(new java.awt.Color(255, 255, 255));
         jButtonn0.setText("0");
+        jButtonn0.setBorderPainted(false);
+        jButtonn0.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonn0.setFocusable(false);
         jButtonn0.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -302,7 +453,8 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonn0);
 
-        jButtonClear.setText("Clear");
+        jButtonClear.setText("AC");
+        jButtonClear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonClearActionPerformed(evt);
@@ -311,6 +463,7 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
         jPanel2.add(jButtonClear);
 
         jButtonExit.setText("Exit");
+        jButtonExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButtonExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonExitActionPerformed(evt);
@@ -332,8 +485,8 @@ public class NumberAddition_v2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonExitActionPerformed
 
     private void jButtonMultiplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMultiplyActionPerformed
-float num1, num2, result;
-
+        float num1, num2, result;
+        jTextField4.setText("x");
         if (!isInteger(jTextField1.getText())){
             jLabelError.setText("El primer numero no es una cifra");
         }
@@ -359,7 +512,7 @@ float num1, num2, result;
 
     private void jButtonPowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPowActionPerformed
         float num1, num2, result;
-
+        jTextField4.setText("^");
         if (!isInteger(jTextField1.getText())){
             jLabelError.setText("El primer numero no es una cifra");
         }
@@ -378,6 +531,7 @@ float num1, num2, result;
 
     private void jButtonDivideActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDivideActionPerformed
         float num1, num2, result;
+        jTextField4.setText("/");
 
         if (!isInteger(jTextField1.getText())){
             jLabelError.setText("El primer numero no es una cifra");
@@ -400,7 +554,7 @@ float num1, num2, result;
 
     private void jButtonSubstractionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubstractionActionPerformed
         float num1, num2, result;
-
+    jTextField4.setText("-");
         if (!isInteger(jTextField1.getText())){
             jLabelError.setText("El primer numero no es una cifra");
         }
@@ -418,6 +572,7 @@ float num1, num2, result;
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         float num1, num2, result;
+        jTextField4.setText("+");
 
         if (!isInteger(jTextField1.getText())){
             jLabelError.setText("El primer numero no es una cifra");
@@ -481,7 +636,7 @@ float num1, num2, result;
 
     private void jButtonRootActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRootActionPerformed
         float num1, num2, result;
-
+        jTextField4.setText("√");
         if (!isInteger(jTextField1.getText())){
             jLabelError.setText("El primer numero no es una cifra");
         }
@@ -502,6 +657,25 @@ float num1, num2, result;
             }
         }
     }//GEN-LAST:event_jButtonRootActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        /*String temp = jTextField1.getText();
+        jTextField1.setText(jTextField2.getText());
+        jTextField2.setText(temp);*/
+        if(getTextFieldSelected()==1){
+            jTextField2.requestFocus();
+            setTextFieldSelected(2);
+        }
+        else{
+            jTextField1.requestFocus();
+            setTextFieldSelected(1);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        
+    }//GEN-LAST:event_jTextField4ActionPerformed
                                       
     private void appendText(int numero){
         String temp;
@@ -553,6 +727,7 @@ float num1, num2, result;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonClear;
     private javax.swing.JButton jButtonDivide;
@@ -579,8 +754,10 @@ float num1, num2, result;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
